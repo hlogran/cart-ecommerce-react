@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Ice cream cream sandwich",
+    "image": "img/sandwich-nata.jpg",
+    "extraInfo": "Box 6 un. (600 ml)",
+    "price": 1.2
+  },
+  {
+    "id": 2,
+    "name": "Vanilla ice cream cone",
+    "image": "img/cucuruchos-vainilla.jpg",
+    "extraInfo": "Box 6 un. (720 ml)",
+    "price": 1.55
+  },
+  {
+    "id": 3,
+    "name": "Assorted mini",
+    "image": "img/mini-surtido.jpg",
+    "extraInfo": "Box 6 un. (720 ml)",
+    "price": 1.55
+  },
+  {
+    "id": 4,
+    "name": "Ice cream mini double cream sandwich",
+    "image": "img/sandwich-doble.jpg",
+    "extraInfo": "Box 6 un. (480 ml)",
+    "price": 1.99
+  },
+  {
+    "id": 5,
+    "name": "Strawberry ice cream",
+    "image": "img/fresa-hielo.jpg",
+    "extraInfo": "Box 10 un. (750 ml)",
+    "price": 1.65
+  },
+  {
+    "id": 6,
+    "name": "Helado yogoice Mr. Toddy",
+    "image": "img/yogoice.jpg",
+    "extraInfo": "Box 8 un. (450 ml)",
+    "price": 1.7
+  },
+  {
+    "id": 7,
+    "name": "Ice cream chocolate egg flavor",
+    "image": "img/huevo.jpg",
+    "extraInfo": "Tarrina 1 L.",
+    "price": 2.55
+  },
+  {
+    "id": 8,
+    "name": "Frozen half coconuts",
+    "image": "img/medio-coco-helado.jpg",
+    "extraInfo": "Box 2 un. (350 ml)",
+    "price": 2.05
+  }
+]
