@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Loading from "../Loading";
+import Product from "../Product";
 
 import "./styles.scss";
 
@@ -16,9 +17,7 @@ export default function Products(props) {
           <Loading />
         ) : (
           result.map((product, index) => (
-            <div>
-              <p>{product.name}</p>
-            </div>
+            <Product key={index} product={product} />
           ))
         )}
       </Row>
