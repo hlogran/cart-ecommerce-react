@@ -5,7 +5,8 @@ import "./styles.scss";
 
 export default function Product(props) {
   const {
-    product: { name, image, extraInfo, price }
+    product: { id, name, image, extraInfo, price },
+    addProductToCart
   } = props;
 
   return (
@@ -16,7 +17,9 @@ export default function Product(props) {
           <Card.Title>{name}</Card.Title>
           <Card.Text>{extraInfo}</Card.Text>
           <Card.Text>$ {price.toFixed(2)}</Card.Text>
-          <Button>Add to cart</Button>
+          <Button onClick={addProductToCart.bind(this, id, name)}>
+            Add to cart
+          </Button>
         </Card.Body>
       </Card>
     </Col>

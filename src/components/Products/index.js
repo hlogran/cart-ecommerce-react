@@ -7,7 +7,8 @@ import "./styles.scss";
 
 export default function Products(props) {
   const {
-    products: { result, loading, error }
+    products: { result, loading, error },
+    addProductToCart
   } = props;
 
   return (
@@ -17,7 +18,11 @@ export default function Products(props) {
           <Loading />
         ) : (
           result.map((product, index) => (
-            <Product key={index} product={product} />
+            <Product
+              key={index}
+              product={product}
+              addProductToCart={addProductToCart}
+            />
           ))
         )}
       </Row>
