@@ -12,7 +12,7 @@ export default function Products(props) {
   } = props;
 
   return (
-    <container>
+    <Container>
       <Row>
         {loading || !result ? (
           <Loading />
@@ -26,6 +26,6 @@ export default function Products(props) {
           ))
         )}
       </Row>
-    </container>
+    </Container>
   );
 }
