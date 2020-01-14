@@ -5,7 +5,7 @@ export const countDuplicatedItems = (arr, value) => {
 };
 
 export const removeDuplicatedItems = arr => {
-  return Array.from(new Set(array));
+  return Array.from(new Set(arr));
 };
 
 export const removeItem = (arr, item) => {
