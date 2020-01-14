@@ -6,14 +6,14 @@ import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
 import "./styles.scss";
 
 export default function TopMenu(props) {
-  const { cartProducts } = props;
+  const { cartProducts, emptyCart } = props;
 
   return (
     <Navbar bg="dark" variant="dark" className="top-menu">
       <Container>
         <BrandNav />
         {/* <MenuNav /> */}
-        <Cart cartProducts={cartProducts} />
+        <Cart cartProducts={cartProducts} emptyCart={emptyCart} />
       </Container>
     </Navbar>
   );

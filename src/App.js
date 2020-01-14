@@ -30,9 +30,14 @@ function App() {
     toast.success(`${name} has been added to the cart.`);
   };
 
+  const emptyCart = () => {
+    localStorage.setItem(STORAGE_PRODUCTS_CART_KEY, JSON.stringify([]));
+    getCartProducts();
+  };
+
   return (
     <div>
-      <TopMenu cartProducts={cartProducts} />
+      <TopMenu cartProducts={cartProducts} emptyCart={emptyCart} />
       <Products products={products} addProductToCart={addProductToCart} />
       <ToastContainer
         position="bottom-left"
