@@ -15,7 +15,7 @@ function App() {
 
   const getCartProducts = () => {
     const ids = localStorage.getItem(STORAGE_PRODUCTS_CART_KEY);
-    setCartProducts(JSON.parse(ids || []));
+    setCartProducts(JSON.parse(ids || "[]"));
   };
 
   const addProductToCart = (id, name) => {
@@ -26,13 +26,13 @@ function App() {
       STORAGE_PRODUCTS_CART_KEY,
       JSON.stringify(cartProducts)
     );
-
+    getCartProducts();
     toast.success(`${name} has been added to the cart.`);
   };
 
   return (
     <div>
-      <TopMenu />
+      <TopMenu cartProducts={cartProducts} />
       <Products products={products} addProductToCart={addProductToCart} />
       <ToastContainer
         position="bottom-left"

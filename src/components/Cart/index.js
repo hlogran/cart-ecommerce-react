@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { ReactComponent as CartEmpty } from "../../assets/svg/cart-empty.svg";
+import { ReactComponent as CartFull } from "../../assets/svg/cart-full.svg";
 
 import "./styles.scss";
 
-export default function Cart() {
+export default function Cart(props) {
+  const { cartProducts } = props;
+
   const [cartOpen, setCartOpen] = useState(false);
 
   const cartWidth = cartOpen ? "400px" : 0;
@@ -22,7 +25,11 @@ export default function Cart() {
   return (
     <>
       <Button variant="link" className="cart-button">
-        <CartEmpty onClick={openCart} />
+        {cartProducts && cartProducts.length ? (
+          <CartFull onClick={openCart} />
+        ) : (
+          <CartEmpty onClick={openCart} />
+        )}
       </Button>
       <div className="cart-content" style={{ width: cartWidth }}>
         Here go the products
