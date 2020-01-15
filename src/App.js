@@ -30,6 +30,20 @@ function App() {
     toast.success(`${name} has been added to the cart.`);
   };
 
+  const removeProductFromCart = id => {
+    debugger;
+    const index = cartProducts.indexOf(id);
+    if (index > -1) {
+      cartProducts.splice(index, 1);
+    }
+    setCartProducts(cartProducts);
+    localStorage.setItem(
+      STORAGE_PRODUCTS_CART_KEY,
+      JSON.stringify(cartProducts)
+    );
+    getCartProducts();
+  };
+
   const emptyCart = () => {
     localStorage.setItem(STORAGE_PRODUCTS_CART_KEY, JSON.stringify([]));
     getCartProducts();
@@ -37,7 +51,13 @@ function App() {
 
   return (
     <div>
-      <TopMenu cartProducts={cartProducts} emptyCart={emptyCart} allProducts={products}/>
+      <TopMenu
+        cartProducts={cartProducts}
+        emptyCart={emptyCart}
+        allProducts={products}
+        addProductToCart={addProductToCart}
+        removeProductFromCart={removeProductFromCart}
+      />
       <Products products={products} addProductToCart={addProductToCart} />
       <ToastContainer
         position="bottom-left"

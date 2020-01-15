@@ -8,7 +8,13 @@ import { ReactComponent as Garbage } from "../../assets/svg/garbage.svg";
 import "./styles.scss";
 
 export default function Cart(props) {
-  const { cartProducts, emptyCart, allProducts } = props;
+  const {
+    cartProducts,
+    emptyCart,
+    allProducts,
+    addProductToCart,
+    removeProductFromCart
+  } = props;
 
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -33,8 +39,7 @@ export default function Cart(props) {
         return prev;
       }, []);
 
-      setproductsToRender(productsToRender);
-      console.log(productsToRender);
+      setproductsToRender(productsToRender.sort((a, b) => a - b));
     } else {
       setproductsToRender([]);
     }
@@ -66,8 +71,8 @@ export default function Cart(props) {
             <CartContentProduct
               key={i}
               product={p}
-              increaseQuantity={null}
-              decreaseQuantity={null}
+              increaseQuantity={addProductToCart}
+              decreaseQuantity={removeProductFromCart}
             />
           ))}
         </div>
