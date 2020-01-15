@@ -4,11 +4,6 @@ import { ReactComponent as CartEmpty } from "../../assets/svg/cart-empty.svg";
 import { ReactComponent as CartFull } from "../../assets/svg/cart-full.svg";
 import { ReactComponent as Close } from "../../assets/svg/close.svg";
 import { ReactComponent as Garbage } from "../../assets/svg/garbage.svg";
-import {
-  removeDuplicatedItems,
-  removeItem,
-  countDuplicatedItems
-} from "../../utils/arrayFunctions";
 
 import "./styles.scss";
 
@@ -19,12 +14,31 @@ export default function Cart(props) {
 
   const cartWidth = cartOpen ? "400px" : 0;
 
-  const [singleProductCart, setSingleProductCart] = useState([]);
+  const [productsToRender, setproductsToRender] = useState([]);
 
   useEffect(() => {
-    const allProductsId = removeDuplicatedItems(cartProducts);
-    setSingleProductCart(allProductsId);
-  }, [cartProducts]);
+    if (!allProducts.loading && allProducts.result) {
+      const productsToRender = cartProducts.reduce((prev, curr) => {
+        let p = prev.find(x => x.id === curr);
+        if (p) {
+          p.quantity++;
+        } else {
+          prev.push(
+            Object.assign(
+              { quantity: 1 },
+              allProducts.result.find(x => x.id === curr)
+            )
+          );
+        }
+        return prev;
+      }, []);
+
+      setproductsToRender(productsToRender);
+      console.log(productsToRender);
+    } else {
+      setproductsToRender([]);
+    }
+  }, [cartProducts, allProducts]);
 
   const openCart = () => {
     setCartOpen(true);
@@ -47,9 +61,16 @@ export default function Cart(props) {
       </Button>
       <div className="cart-content" style={{ width: cartWidth }}>
         <CartContentHeader onClose={closeCart} onEmpty={emptyCart} />
-        {singleProductCart.map((productId, index) => (
-          <CartContentProducts key={index} product={productId} />
-        ))}
+        <div className="cart-content__products">
+          {productsToRender.map((p, i) => (
+            <CartContentProduct
+              key={i}
+              product={p}
+              increaseQuantity={null}
+              decreaseQuantity={null}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
@@ -71,8 +92,25 @@ function CartContentHeader(props) {
   );
 }
 
-function CartContentProducts(props) {
-  const { product } = props;
+function CartContentProduct(props) {
+  const { product, increaseQuantity, decreaseQuantity } = props;
 
-  return <div className="cart-content__products">{product}</div>;
+  return (
+    <div className="cart-content__product">
+      <img src={product.image} alt={product.name} />
+      <div className="cart-content__product-info">
+        <div>
+          <h3>{product.name.substr(0, 25)}...</h3>
+          <p>{product.price.toFixed(2)} € / ud.</p>
+        </div>
+        <div>
+          <p>Items: {product.quantity} un.</p>
+          <div>
+            <button onClick={() => increaseQuantity(product.id)}>+</button>
+            <button onClick={() => decreaseQuantity(product.id)}>-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

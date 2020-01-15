@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div>
-      <TopMenu cartProducts={cartProducts} emptyCart={emptyCart} />
+      <TopMenu cartProducts={cartProducts} emptyCart={emptyCart} allProducts={products}/>
       <Products products={products} addProductToCart={addProductToCart} />
       <ToastContainer
         position="bottom-left"
