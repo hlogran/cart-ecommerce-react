@@ -31,7 +31,6 @@ function App() {
   };
 
   const removeProductFromCart = id => {
-    debugger;
     const index = cartProducts.indexOf(id);
     if (index > -1) {
       cartProducts.splice(index, 1);

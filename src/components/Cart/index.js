@@ -22,26 +22,29 @@ export default function Cart(props) {
 
   const [productsToRender, setproductsToRender] = useState([]);
 
+  const [cartTotalPrice, setCartTotalPrice] = useState(0);
+
   useEffect(() => {
     if (!allProducts.loading && allProducts.result) {
+      let totalPrice = 0;
       const productsToRender = cartProducts.reduce((prev, curr) => {
         let p = prev.find(x => x.id === curr);
         if (p) {
+          totalPrice += p.price;
           p.quantity++;
         } else {
-          prev.push(
-            Object.assign(
-              { quantity: 1 },
-              allProducts.result.find(x => x.id === curr)
-            )
-          );
+          let p = allProducts.result.find(x => x.id === curr);
+          totalPrice += p.price;
+          prev.push(Object.assign({ quantity: 1 }, p));
         }
         return prev;
       }, []);
 
       setproductsToRender(productsToRender.sort((a, b) => a - b));
+      setCartTotalPrice(totalPrice);
     } else {
       setproductsToRender([]);
+      setCartTotalPrice(0);
     }
   }, [cartProducts, allProducts]);
 
@@ -76,6 +79,7 @@ export default function Cart(props) {
             />
           ))}
         </div>
+        <CartContentFooter cartTotalPrice={cartTotalPrice} />
       </div>
     </>
   );
@@ -116,6 +120,20 @@ function CartContentProduct(props) {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function CartContentFooter(props) {
+  const { cartTotalPrice } = props;
+
+  return (
+    <div className="cart-content__footer">
+      <div>
+        <p>Total: </p>
+        <p>{cartTotalPrice.toFixed(2)} €</p>
+      </div>
+      <Button>Submit Order</Button>
     </div>
   );
 }
