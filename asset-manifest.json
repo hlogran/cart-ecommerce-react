@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/cart-ecommerce-react/static/css/main.fa1d3948.chunk.css",
-    "main.js": "/cart-ecommerce-react/static/js/main.5f53868e.chunk.js",
-    "main.js.map": "/cart-ecommerce-react/static/js/main.5f53868e.chunk.js.map",
+    "main.js": "/cart-ecommerce-react/static/js/main.d8a9bcaa.chunk.js",
+    "main.js.map": "/cart-ecommerce-react/static/js/main.d8a9bcaa.chunk.js.map",
     "runtime-main.js": "/cart-ecommerce-react/static/js/runtime-main.8bb12461.js",
     "runtime-main.js.map": "/cart-ecommerce-react/static/js/runtime-main.8bb12461.js.map",
     "static/css/2.82caf9b5.chunk.css": "/cart-ecommerce-react/static/css/2.82caf9b5.chunk.css",
-    "static/js/2.b20a0d9b.chunk.js": "/cart-ecommerce-react/static/js/2.b20a0d9b.chunk.js",
-    "static/js/2.b20a0d9b.chunk.js.map": "/cart-ecommerce-react/static/js/2.b20a0d9b.chunk.js.map",
+    "static/js/2.53442134.chunk.js": "/cart-ecommerce-react/static/js/2.53442134.chunk.js",
+    "static/js/2.53442134.chunk.js.map": "/cart-ecommerce-react/static/js/2.53442134.chunk.js.map",
     "index.html": "/cart-ecommerce-react/index.html",
-    "precache-manifest.d2839617d19f233f9cb92592cd2ec334.js": "/cart-ecommerce-react/precache-manifest.d2839617d19f233f9cb92592cd2ec334.js",
+    "precache-manifest.2d2f8431079dab75ce54843eec7daeae.js": "/cart-ecommerce-react/precache-manifest.2d2f8431079dab75ce54843eec7daeae.js",
     "service-worker.js": "/cart-ecommerce-react/service-worker.js",
     "static/css/2.82caf9b5.chunk.css.map": "/cart-ecommerce-react/static/css/2.82caf9b5.chunk.css.map",
     "static/css/main.fa1d3948.chunk.css.map": "/cart-ecommerce-react/static/css/main.fa1d3948.chunk.css.map",
-    "static/js/2.b20a0d9b.chunk.js.LICENSE": "/cart-ecommerce-react/static/js/2.b20a0d9b.chunk.js.LICENSE",
+    "static/js/2.53442134.chunk.js.LICENSE": "/cart-ecommerce-react/static/js/2.53442134.chunk.js.LICENSE",
     "static/media/cart-empty.44a18073.svg": "/cart-ecommerce-react/static/media/cart-empty.44a18073.svg",
     "static/media/cart-full.d7ac4f55.svg": "/cart-ecommerce-react/static/media/cart-full.d7ac4f55.svg",
     "static/media/close.ebb5848c.svg": "/cart-ecommerce-react/static/media/close.ebb5848c.svg",
@@ -23,8 +23,8 @@
   "entrypoints": [
     "static/js/runtime-main.8bb12461.js",
     "static/css/2.82caf9b5.chunk.css",
-    "static/js/2.b20a0d9b.chunk.js",
+    "static/js/2.53442134.chunk.js",
     "static/css/main.fa1d3948.chunk.css",
-    "static/js/main.5f53868e.chunk.js"
+    "static/js/main.d8a9bcaa.chunk.js"
   ]
 }
